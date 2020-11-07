@@ -15,13 +15,38 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#fff',
         display: 'standalone',
-        icons: [],
+        icon: './static/favicon-32x32.png',
+        icons: [
+          {
+            src: './static/favicon-16x16.png',
+            sizes: '16x16',
+            type: 'image/png',
+          },
+          {
+            src: './static/favicon-32x32.png',
+            sizes: '32x32',
+            type: 'image/png',
+          },
+        ],
       },
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-mdx',
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'noopener noreferrer',
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
