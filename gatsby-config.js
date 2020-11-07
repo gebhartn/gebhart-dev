@@ -1,11 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: 'Nicholas Gebhart',
-    description: 'Nicholas Gebhart is a Software Engineer',
-    author: 'Nicholas Gebhart',
+    siteTitle: 'Nicholas Gebhart',
+    siteTitleAlt: 'Nicholas Gebhart - Software Engineer',
+    siteHeadline: 'Nicholas Gebhart is a Software Engineer',
     siteUrl: 'https://gebhart.dev',
+    siteDescription:
+      'Nicholas Gebhart is a professional Software Engineer specializing in modern application development and technologies',
+    siteLanguage: 'en',
+    siteImage: '/banner.png', // TODO: find out what this is for offline/manifest
+    author: 'Nicholas Gebhart',
   },
   plugins: [
+    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -16,6 +22,9 @@ module.exports = {
         theme_color: '#fff',
         display: 'standalone',
         icon: './static/favicon-32x32.png',
+        icon_options: {
+          purpose: 'any maskable',
+        },
         icons: [
           {
             src: './static/favicon-16x16.png',
@@ -25,6 +34,16 @@ module.exports = {
           {
             src: './static/favicon-32x32.png',
             sizes: '32x32',
+            type: 'image/png',
+          },
+          {
+            src: './static/android-chrome-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: './static/android-chrome-512x512.png',
+            sizes: '512x512',
             type: 'image/png',
           },
         ],
