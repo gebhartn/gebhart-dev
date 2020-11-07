@@ -1,5 +1,23 @@
 module.exports = {
+  siteMetadata: {
+    title: 'Nicholas Gebhart',
+    description: 'Nicholas Gebhart is a Software Engineer',
+    author: 'Nicholas Gebhart',
+    siteUrl: 'https://gebhart.dev',
+  },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Nicholas Gebhart is a Software Engineer',
+        short_name: 'N. Gebhart',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#fff',
+        display: 'standalone',
+        icons: [],
+      },
+    },
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
     'gatsby-plugin-sitemap',
@@ -19,15 +37,58 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: `gatsby-plugin-feed-mdx`,
       options: {
-        name: 'Nicholas Gebhart is a Software Engineer',
-        short_name: 'N. Gebhart',
-        start_url: '/',
-        background_color: '#fff',
-        theme_color: '#fff',
-        display: 'standalone',
-        icons: [],
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return {
+                  ...edge.node.frontmatter,
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
+                  guid: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                }
+              })
+            },
+            query: `
+              {
+                allMdx(
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                  filter: { frontmatter: { template: { eq: "post"} } }
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: '/rss.xml',
+            title: "Nicholas Gebhart's RSS Feed",
+          },
+        ],
       },
     },
   ],
