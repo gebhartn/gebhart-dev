@@ -11,6 +11,7 @@ module.exports = {
     author: 'Nicholas Gebhart',
   },
   plugins: [
+    'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',
