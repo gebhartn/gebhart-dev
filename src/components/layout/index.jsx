@@ -1,5 +1,5 @@
 import * as React from 'react'
-import SEO from './seo'
+import SEO from '../seo'
 
 const Layout = ({ children }) => (
   <>
