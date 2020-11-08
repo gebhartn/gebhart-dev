@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
-import { useSiteMetadata } from '../hooks'
+import { useSiteMetadata } from '../../hooks'
 
 const SEO = ({ title = '', description = '', pathname = '', image = '', canonicalUrl = '', children = null }) => {
   const {

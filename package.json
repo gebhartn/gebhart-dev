@@ -11,7 +11,8 @@
     "prettier:fix": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "start:build": "yarn clean && yarn build && yarn serve"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.19",
