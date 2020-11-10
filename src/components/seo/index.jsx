@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { withPrefix } from 'gatsby'
 import { useSiteMetadata } from '../../hooks'
 
-const SEO = ({ title = '', description = '', pathname = '', image = '', canonicalUrl = '', children = null }) => {
+const Seo = ({ title = '', description = '', pathname = '', image = '', canonicalUrl = '', children = null }) => {
   const {
     siteTitle,
     siteTitleAlt: defaultTitle,
@@ -39,6 +39,13 @@ const SEO = ({ title = '', description = '', pathname = '', image = '', canonica
       <meta property="twitter:image" content={seo.image} />
       <meta property="twitter:image:alt" content={seo.description} />
       <meta property="twitter:creator" content={author} />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossOrigin="anonymous"
+      />
+      <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css" />
       <link rel="icon" type="image/png" sizes="32x32" href={withPrefix('/static/favicon-32x32.png')} />
       <link rel="icon" type="image/png" sizes="16x16" href={withPrefix('/static/favicon-16x16.png')} />
       <link rel="apple-touch-icon" sizes="180x180" href={withPrefix('/static/apple-touch-icon.png')} />
@@ -48,4 +55,4 @@ const SEO = ({ title = '', description = '', pathname = '', image = '', canonica
   )
 }
 
-export default SEO
+export default Seo

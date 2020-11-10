@@ -3,13 +3,13 @@ import { graphql, Link } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../layout'
-import SEO from '../seo'
+import Seo from '../seo'
 
 const shortcodes = { Link }
 const Page = ({ data: { mdx } }) => {
   return (
     <Layout>
-      <SEO title={mdx.frontmatter.title} description={mdx.excerpt} />
+      <Seo title={mdx.frontmatter.title} description={mdx.excerpt} />
       <h1>{mdx.frontmatter.title}</h1>
       <MDXProvider components={shortcodes}>
         <MDXRenderer>{mdx.body}</MDXRenderer>

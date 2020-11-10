@@ -9,9 +9,10 @@ module.exports = {
     siteLanguage: 'en',
     siteImage: '/banner.png', // TODO: find out what this is for offline/manifest
     author: 'Nicholas Gebhart',
+    // eslint-disable-next-line global-require
+    siteData: require('./data/site-config'),
   },
   plugins: [
-    'gatsby-plugin-emotion',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-manifest',
