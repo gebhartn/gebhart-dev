@@ -4,7 +4,7 @@
 
 ## About
 
-A relatively minimalist approach to a portfolio and blog with the intention of leveraging the [MDX][5] format as much as possible. For science!
+A relatively minimalist approach to a portfolio and blog with the intention of leveraging [sakura][8] and the [MDX][5] file format as much as possible.
 
 The first incarnation of this project was created in a more traditional React-centric approach that used `dangerouslySetInnerHtml` to inject Markdown documents into my React components, so this seems like an exciting alternative to that "outdated" approach.
 
@@ -25,5 +25,6 @@ This project is open source and available under the [MIT License][7]
 [//]: # 'External links'
 [5]: https://github.com/mdx-js/mdx
 [6]: https://gebhart.dev/
+[8]: https://github.com/oxalorg/sakura
 [//]: # 'Repository links'
 [7]: LICENSE
