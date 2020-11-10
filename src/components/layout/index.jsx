@@ -1,12 +1,18 @@
 import * as React from 'react'
 import SEO from '../seo'
-import Global from './styles.jsx'
+import Navigation from '../navigation'
+import Footer from '../footer'
 
 const Layout = ({ children }) => (
   <>
     <SEO />
-    <Global />
-    {children}
+    <div>
+      <div>
+        <Navigation />
+        <main id="main">{children}</main>
+      </div>
+      <Footer />
+    </div>
   </>
 )
 
